@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+@RenderSection("scripts", required: false)
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        This is the Shared Layout for lab 5!
+        <br />
+        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Index</a> <br />
+        <a class="nav-link text-dark" asp-area="" asp-page="/AnswerImages/Index">Answers</a> <br />
+
+    </header>
+    <div>
+        <br />
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@page
+@model Lab5.Pages.AnswerImages.CreateModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create";
+}
+
+<h4>AnswerImage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AnswerImage.FileName" class="control-label"></label>
+                <input asp-for="AnswerImage.FileName" class="form-control" />
+                <span asp-validation-for="AnswerImage.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerImage.Url" class="control-label"></label>
+                <input asp-for="AnswerImage.Url" type="file" name="file" class="form-control"  />
+                <span asp-validation-for="AnswerImage.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerImage.Question" class="control-label"></label>
+                <select asp-for="AnswerImage.Question" class="form-control"  asp-items="Html.GetEnumSelectList<Lab5.Models.Question>()"></select>
+                <span asp-validation-for="AnswerImage.Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
